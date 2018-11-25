@@ -1,6 +1,6 @@
-var ROW_START = 2;
-var COL_URL = 2;
-var COL_STATUS = 1;
+var ROW_START = 2; //データの開始行を指定。
+var COL_URL = 2; // HTTPステータスチェックを行いたいURL列
+var COL_STATUS = 1; // ステータス結果を出力したい列
 
 
 function onOpen(){
