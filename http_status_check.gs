@@ -34,10 +34,17 @@ function main(){
     strURL = sheet.getRange(i, COL_URL).getValue();
     resCode = getHTTPStatusCode(strURL);
     
-    //結果を書き込み
-    sheet.getRange(i, COL_STATUS).setValue(resCode);
-    // エラー時の色変更（ステータス２００以外はエラー判定）
-    if(resCode != 200){
+    
+    if(resCode === 999){
+       //エラーを書き込む
+       sheet.getRange(i, COL_STATUS).setValue("Err");
+    }else{
+       //結果を書き込み
+       sheet.getRange(i, COL_STATUS).setValue(resCode);
+    }
+    
+    // エラー時の色変更（ステータス２００以外は背景赤）
+    if(resCode !== 200){
       sheet.getRange(i, COL_STATUS).setBackground('#FF0000');
       sheet.getRange(i, COL_STATUS).setFontColor('#FFFFFF'); 
     }
